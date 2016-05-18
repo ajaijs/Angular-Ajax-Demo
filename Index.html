@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="App/Libs/angular.min.js"></script>
+    <script src="App/Libs/angular-route.min.js"></script>
+    <script src="App/Libs/jquery-2.1.4.min.js"></script>
+    <script src="App/Libs/bootstrap.min.js"></script>
+
+    <script src="App/app.js"></script>
+    <script src="App/Controllers/Ajax%20Controller.js"></script>
+
+    <link rel="stylesheet" href="App/SASS/styles.css">
+    <link rel="stylesheet" href="App/Libs/bootstrap.min.css">
+
+</head>
+<body ng-controller="AjaxController">
+<div id="headerDiv" class="jumbotron">
+    <div id="heading">ANGULAR AJAX DEMO</div>
+    <input type="button" id="ajaxBtn" class="btn btn-success" value="Click Me" ng-click="getData()">
+</div>
+
+<div>
+    <div class="container">
+        <div>
+            <div id="searchBox">
+                <input class="searchBox" type="text" ng-model="query" placeholder="Search.." ng-show="searchBox">
+            </div>
+            <div id ="dataTable" class="table-responsive">
+                <table class="table table-bordered table-responsive" ng-show="showTable">
+                    <thead>
+                    <tr class="bg-success">
+                        <th class="col-sm-1 col-xs-1"> ID </th>
+                        <th class="col-sm-1 col-xs-1"> Name </th>
+                        <th class="col-sm-1 col-xs-1"> User Name </th>
+                        <th class="col-sm-1 col-xs-1"> Email </th>
+                        <th class="col-sm-1 col-xs-1"> Address </th>
+                        <th class="col-sm-1 col-xs-1"> Geo Location</th>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="data in datas | filter:query" >
+                    <tr>
+
+                        <td class="col-sm-1 col-xs-1"> {{data.id  }}</td>
+                        <td class="col-sm-1 col-xs-1">  {{data.name}} </td>
+                        <td class="col-sm-1 col-xs-1"> {{data.username}}</td>
+                        <td class="col-sm-1 col-xs-1"> {{data.email}}</td>
+                        <td class="col-sm-1 col-xs-1">
+                            {{data.address.suite}} <br>
+                            {{data.address.city}}<br>
+                            {{data.address.zipcode}}<br>
+                        </td>
+                        <td class="col-md-1 col-sm-1 col-xs-1">
+                            LAT:{{data.address.geo.lat}}<br>
+                            LONG:{{data.address.geo.lng}}
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div ng-view=""></div>
+    </div>
+</div>
+
+
+</body>
+</html>
+

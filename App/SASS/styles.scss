@@ -1,0 +1,16 @@
+$headingFontSize: 20px;
+$headingAlignment: center;
+$btnMargin:10px;
+$searchBoxMargin:25px;
+
+#headerDiv{
+  font-size: $headingFontSize;
+  text-align: $headingAlignment;
+}
+#ajaxBtn{
+  margin: $btnMargin;
+}
+#searchBox{
+  text-align: $headingAlignment;
+  margin-bottom: $searchBoxMargin;
+}
